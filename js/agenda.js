@@ -59,14 +59,14 @@ function validarForm(evento) {
 }
 
 // Evento Onchange
-let input1  = document.getElementById("nombre");
-let input2  = document.getElementById("deporte");
-let input3  = document.getElementById("fecha");
-let input4  = document.getElementById("horario");
+let input1 = document.getElementById("nombre");
+let input2 = document.getElementById("deporte");
+let input3 = document.getElementById("fecha");
+let input4 = document.getElementById("horario");
 
-input1.onchange = () => {console.log("Se ingreso un nombre")};
-input2.onchange = () => {console.log("Se ingreso un deporte")};
-input3.onchange = () => {console.log("Se ingreso una fecha")};
-input4.onchange = () => {console.log("Se ingreso un horario")};
+input1.onchange = () => { console.log("Se ingreso un nombre") };
+input2.onchange = () => { console.log("Se ingreso un deporte") };
+input3.onchange = () => { console.log("Se ingreso una fecha") };
+input4.onchange = () => { console.log("Se ingreso un horario") };
 
 
