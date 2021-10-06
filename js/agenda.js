@@ -70,3 +70,32 @@ input3.onchange = () => { console.log("Se ingreso una fecha") };
 input4.onchange = () => { console.log("Se ingreso un horario") };
 
 
+
+// Codig JS para desafio clase 13
+
+// Boton para mostrar deportes
+$('#listaDeportes').fadeIn('slow');
+$('#listaDeportes').fadeOut(1500);
+
+let tocaBoton = false;
+ $('#botonDeportes').click(() => {
+     if( tocaBoton )
+         $('#listaDeportes').slideDown();
+     else
+         $('#listaDeportes').slideUp();
+     tocaBoton = !tocaBoton;
+ });
+
+ // Titulo dinamico
+ desaparecer();
+ 
+ function desaparecer() {
+     $('#tituloTilteado').fadeOut(1500, function() {
+         aparecer();
+     });
+ }
+ function aparecer() {
+     $('#tituloTilteado').fadeIn(1500, function() {
+         desaparecer();
+     });
+ }
