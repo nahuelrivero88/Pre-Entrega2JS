@@ -58,44 +58,44 @@ function validarForm(evento) {
     }
 }
 
-// Evento Onchange
-let input1 = document.getElementById("nombre");
-let input2 = document.getElementById("deporte");
-let input3 = document.getElementById("fecha");
-let input4 = document.getElementById("horario");
-
-input1.onchange = () => { console.log("Se ingreso un nombre") };
-input2.onchange = () => { console.log("Se ingreso un deporte") };
-input3.onchange = () => { console.log("Se ingreso una fecha") };
-input4.onchange = () => { console.log("Se ingreso un horario") };
-
-
 
 // Codig JS para desafio clase 13
 
-// Boton para mostrar deportes
-$('#listaDeportes').fadeIn('slow');
-$('#listaDeportes').fadeOut(1500);
 
-let tocaBoton = false;
- $('#botonDeportes').click(() => {
-     if( tocaBoton )
-         $('#listaDeportes').slideDown();
-     else
-         $('#listaDeportes').slideUp();
-     tocaBoton = !tocaBoton;
- });
+const listaDeportes = [
+    { deporte: "Futbol", profesor: "Matias", horario: "Matutino" },
+    { deporte: "Basketball", profesor: "Mateo", horario: "Matutino y Vespertino" },
+    { deporte: "Volleyball", profesor: "Juan", horario: "Vespertino" },
+    { deporte: "Libre", profesor: "Mario", horario: "Nocturno" }
+];
 
- // Titulo dinamico
- desaparecer();
- 
- function desaparecer() {
-     $('#tituloTilteado').fadeOut(1500, function() {
-         aparecer();
-     });
- }
- function aparecer() {
-     $('#tituloTilteado').fadeIn(1500, function() {
-         desaparecer();
-     });
- }
+//Agrego nombre de los deporte abajo del icono
+$('.deporteFutbol').append(`<h2 class="nombreDeporte">Futbol</h2>`);
+$('.deporteBask').append(`<h2 class="nombreDeporte">Basketball</h2>`);
+$('.deporteVoll').append(`<h2 class="nombreDeporte">Volleyball</h2>`);
+$('.deporteLibre').append(`<h2 class="nombreDeporte">Libre</h2>`);
+
+// Filtro
+function filtrarDeporte(deporteFiltrado) {
+    let divDeportes = $("#deportes");
+    divDeportes.html("");
+    for (const listaDeporte of deporteFiltrado) {
+
+        divDeportes.append(`
+            <div>
+                <h4> Deporte: ${listaDeporte.deporte} </h5>
+                <hr>
+                <b>  Profesor: ${listaDeporte.profesor} </b>
+                <hr>
+                <b>  Horario: ${listaDeporte.horario} </b>
+            </div>
+        `);
+    }
+}
+//Función click al nombre del deporte
+$(".nombreDeporte").click(function () {
+    let deporte = $(this).html();
+    let deporteFiltrado = listaDeportes.filter(p => p.deporte === deporte);
+
+    filtrarDeporte(deporteFiltrado);
+})
